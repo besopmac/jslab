@@ -5,9 +5,33 @@ app.listen('3000', (req, res) => {
 });
 
 app.get('/dogs', (req, res) => {
-    res.send(req.query);
+    res.send(dogs);
 });
 
 app.post('/dogs', (req, res) => {
-    res.send('Post OK');
+    res.send(req.headers);
 });
+
+app.put('/dogs/:id', (req, res) => {
+    res.send(req.params);
+});
+
+
+/**
+ * Usuando na prática
+ */
+
+const dogs = [
+    {
+        breed: 'Beagle',
+        nome: 'Barney'
+    },
+    {
+        breed: 'Rottweiler',
+        nome: 'Marshall'
+    },
+    {
+        breed: 'Mastin',
+        nome: 'Opie'
+    }
+];
