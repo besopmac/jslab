@@ -1,59 +1,11 @@
-const app = require('express')();
-
-app.listen('3000', (req, res) => {
-    console.log('servidor rodando');
-});
-
-app.get('/empregados/ti', (req, res) => {
-    res.send(empregados);
-});
-
-app.post('/empregados/ti', (req, res) => {
-    // onde posso criar um novo funcionário
-    
-    /**
-     * adicionando novo funcionario
-     */
-
-    let novoFuncionario = {
-        nome: req.headers.nome,
-        funcao: req.headers.funcao
-    };
-    empregados.push(novoFuncionario);
-
-    /**
-     * Enviando mensagem ao servidor
-     */
-    res.send('Funcionário inserido com sucesso');
-});
-
-app.put('/empregados/:id/ti', (req, res) => {
-    // :id é um parâmetro/chave que sempre retorna uma string
-    for(const empregado of empregados) {
-        if (empregado.nome === req.params.id) {
-            res.send(empregado);
-            return;
-        }
-    }
-    res.send(`Não foi possível localizar o empregado ${req.params.id}`);
-});
-
-
 /**
- * Na prática
+ * Recrie a API do tutorial, baseado no projeto Card Dogs
+ * 
+ * @param {string} breed - A raça do cão.
+ * @param {string} subBreed - O grupo da raça do cão.
+ * @param {number} friendliness - O nível de simpatia da raça entre 1 e 12.
+ * @param {number} intelligence - O nível de inteligência da raça entre 1 e 12.
+ * @param {string} shedding - O nível de caimento de pêlo da raça. 
+ * @param {number} liveMin - O tempo mínimo de vida da raça.
+ * @param {number} liveMax - O tempo maximo de vida da raça.
  */
-
-const empregados = [
-    {
-        nome: 'Bruno',
-        funcao: 'Front-End Dev'
-    },
-    {
-        nome: 'Cristiano',
-        funcao: 'Fullstack Dev'
-    },
-    {
-        nome: 'Fábio',
-        funcao: 'Product Owner'
-    }
-]
