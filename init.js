@@ -8,4 +8,4 @@ funcao(function(greetings, message) {
     }, 3000);
 });
 
-console.log('...the end?');
+console.log("\n...the end? It's over?!");

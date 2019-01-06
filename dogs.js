@@ -12,5 +12,5 @@ module.exports = function dogs(callback) {
      * 1. Frase com a raça do cão
      * 2. Resultado do método speak 
      */
-    callback(`This dog's breed is ${beagle.breed} and it's saying...`, beagle.speak());
+    callback(`${beagle.name}'s breed is ${beagle.breed} and it's saying...`, beagle.speak());
 }
