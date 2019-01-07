@@ -9,7 +9,7 @@ app.get('/dogs', (req, res) => {
 });
 
 app.post('/dogs', (req, res) => {
-    res.send(req.headers);
+    
 });
 
 app.put('/dogs/:id', (req, res) => {
@@ -23,15 +23,15 @@ app.put('/dogs/:id', (req, res) => {
 
 const dogs = [
     {
-        breed: 'Beagle',
-        nome: 'Barney'
+        name: 'Barney',
+        breed: 'Beagle'
     },
     {
-        breed: 'Rottweiler',
-        nome: 'Marshall'
+        name: 'Marshall',
+        breed: 'Rottweiler'
     },
     {
-        breed: 'Mastin',
-        nome: 'Opie'
+        name: 'Opie',
+        breed: 'Mastin Tibetano'
     }
 ];
