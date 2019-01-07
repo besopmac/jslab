@@ -4,34 +4,56 @@ app.listen('3000', (req, res) => {
     console.log('servidor rodando');
 });
 
-app.get('/dogs', (req, res) => {
-    res.send(dogs);
+app.get('/empregados/ti', (req, res) => {
+    res.send(empregados);
 });
 
-app.post('/dogs', (req, res) => {
+app.post('/empregados/ti', (req, res) => {
+    // onde posso criar um novo funcionário
     
+    /**
+     * adicionando novo funcionario
+     */
+
+    let novoFuncionario = {
+        nome: req.headers.nome,
+        funcao: req.headers.funcao
+    };
+    empregados.push(novoFuncionario);
+
+    /**
+     * Enviando mensagem ao servidor
+     */
+    res.send('Funcionário inserido com sucesso');
 });
 
-app.put('/dogs/:id', (req, res) => {
-    res.send(req.params);
+app.put('/empregados/:id/ti', (req, res) => {
+    // :id é um parâmetro/chave que sempre retorna uma string
+    for(const empregado of empregados) {
+        if (empregado.nome === req.params.id) {
+            res.send(empregado);
+            return;
+        }
+    }
+    res.send(`Não foi possível localizar o empregado ${req.params.id}`);
 });
 
 
 /**
- * Usuando na prática
+ * Na prática
  */
 
-const dogs = [
+const empregados = [
     {
-        name: 'Barney',
-        breed: 'Beagle'
+        nome: 'Bruno',
+        funcao: 'Front-End Dev'
     },
     {
-        name: 'Marshall',
-        breed: 'Rottweiler'
+        nome: 'Cristiano',
+        funcao: 'Fullstack Dev'
     },
     {
-        name: 'Opie',
-        breed: 'Mastin Tibetano'
+        nome: 'Fábio',
+        funcao: 'Product Owner'
     }
-];
+]
